@@ -21,8 +21,8 @@ class Cymphony < Formula
     end
 
     # Patch shebang to use Homebrew's Erlang, not whatever is on user's PATH
-    inreplace bin/"cymphony", "#!/usr/bin/env escript",
-      "#{Formula["erlang"].opt_bin}/escript"
+    inreplace bin/"cymphony", "#! /usr/bin/env escript",
+      "#!#{Formula["erlang"].opt_bin}/escript"
   end
 
   test do
