@@ -9,6 +9,9 @@ class Cymphony < Formula
   depends_on "elixir" => [:build, :runtime]
 
   def install
+    erlang_prefix = Formula["erlang"].opt_prefix
+    ENV.prepend_path "PATH", "#{erlang_prefix}/bin"
+
     cd "elixir" do
       system "mix", "local.hex", "--force"
       system "mix", "local.rebar", "--force"
