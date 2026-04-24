@@ -1,8 +1,8 @@
 class Cymphony < Formula
   desc "Autonomous coding agent orchestrator"
   homepage "https://github.com/zaalipro/cymphony"
-  url "https://github.com/zaalipro/cymphony/archive/refs/tags/v0.4.16.tar.gz"
-  sha256 "914ac4a10b5b2ab5c987e2cfc1593c5dd62aa987c376dd1a4459e3626f065be0"
+  url "https://github.com/zaalipro/cymphony/archive/refs/tags/v0.4.17.tar.gz"
+  sha256 "60a6aecd90c0dd954e78d79ae5b3441621101ee70faeee00366bf2d6fa1c1387"
   license "Apache-2.0"
   head "https://github.com/zaalipro/cymphony.git", branch: "main"
 
