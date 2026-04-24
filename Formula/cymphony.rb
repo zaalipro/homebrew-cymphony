@@ -1,8 +1,8 @@
 class Cymphony < Formula
   desc "Autonomous coding agent orchestrator"
   homepage "https://github.com/zaalipro/cymphony"
-  url "https://github.com/zaalipro/cymphony/archive/refs/tags/v0.4.19.tar.gz"
-  sha256 "b2bdc638a9926cb4864f924f98b740c6a121e0b4dc7612a3bb04747c4aeb6c9d"
+  url "https://github.com/zaalipro/cymphony/archive/refs/tags/v0.4.20.tar.gz"
+  sha256 "3485cde5ee7db2a24ad3348fa94625fa7c58a9dc69eecaaa7e8b5b05b65b557b"
   license "Apache-2.0"
   head "https://github.com/zaalipro/cymphony.git", branch: "main"
 
@@ -12,13 +12,11 @@ class Cymphony < Formula
     erlang_prefix = Formula["erlang"].opt_prefix
     ENV.prepend_path "PATH", "#{erlang_prefix}/bin"
 
-    cd "elixir" do
-      system "mix", "local.hex", "--force"
-      system "mix", "local.rebar", "--force"
-      system "mix", "deps.get"
-      system "mix", "escript.build"
-      bin.install "bin/cymphony"
-    end
+    system "mix", "local.hex", "--force"
+    system "mix", "local.rebar", "--force"
+    system "mix", "deps.get"
+    system "mix", "escript.build"
+    bin.install "bin/cymphony"
 
     # Patch shebang to use Homebrew's Erlang, not whatever is on user's PATH
     inreplace bin/"cymphony", "#! /usr/bin/env escript",
