@@ -5,20 +5,20 @@ class Cymphony < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/zaalipro/cymphony/releases/download/v1.5.5/cymphony_macos_arm"
-      sha256 "ea15f5e229f7c7aff5089458a52dfad78e897697d846bbce43d8443f93b498fb"
+      url "https://github.com/zaalipro/cymphony/releases/download/v1.5.6/cymphony_macos_arm"
+      sha256 "9ef8c468485d7cd7e826724f1d6a7e30f85e40639c3c9713987cd55239332a30"
     end
 
     on_intel do
-      url "https://github.com/zaalipro/cymphony/releases/download/v1.5.5/cymphony_macos_intel"
-      sha256 "c851c3501c4ae7703e36480cba3a27c497bee2a13e455bf4282f85c185c1f26d"
+      url "https://github.com/zaalipro/cymphony/releases/download/v1.5.6/cymphony_macos_intel"
+      sha256 "eaa0b3d4c9644176a2f08a51206df3ff03871d9f4f67337ac472a02f6a3d4c9b"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/zaalipro/cymphony/releases/download/v1.5.5/cymphony_linux"
-      sha256 "0a2b43e1d2dc3ab969c2b17684e9d610cf851255a1b73376ae3535f7c09c8c29"
+      url "https://github.com/zaalipro/cymphony/releases/download/v1.5.6/cymphony_linux"
+      sha256 "fa4aa7da065bf351ae3a8ec5e6fc122138bbab660c904f90a60da35324229bc4"
     end
   end
 
