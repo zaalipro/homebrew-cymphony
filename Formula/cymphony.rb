@@ -1,26 +1,33 @@
 class Cymphony < Formula
-  desc "Autonomous coding agent orchestrator"
+  desc "Autonomous coding agent orchestrator (self-contained, bundles Erlang/Elixir)"
   homepage "https://github.com/zaalipro/cymphony"
-  url "https://github.com/zaalipro/cymphony/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "319ac47a530ec3fa0788d5ef2c8621fa809d12e5cd890ac005b7437795c25e77"
   license "Apache-2.0"
-  head "https://github.com/zaalipro/cymphony.git", branch: "main"
 
-  depends_on "elixir" => [:build, :runtime]
+  on_macos do
+    on_arm do
+      url "https://github.com/zaalipro/cymphony/releases/download/v1.3.0/cymphony_macos_arm"
+      sha256 "2e5788663101786b78927b14c4b370ab2932db90e6aac84f70f1a51748eee77a"
+    end
+
+    on_intel do
+      url "https://github.com/zaalipro/cymphony/releases/download/v1.3.0/cymphony_macos_intel"
+      sha256 "5d91562abe287a0ea012bd3b16cb63a9e1676789a3f9ac8f9e56615623868acb"
+    end
+  end
+
+  on_linux do
+    on_intel do
+      url "https://github.com/zaalipro/cymphony/releases/download/v1.3.0/cymphony_linux"
+      sha256 "376aa260b7e8534e0fd0e7c0862b287e2e78a266a31b8affc7617b9a9ffbec9c"
+    end
+  end
+
+  conflicts_with "cymphony-lite", because: "both install bin/cymphony"
 
   def install
-    erlang_prefix = Formula["erlang"].opt_prefix
-    ENV.prepend_path "PATH", "#{erlang_prefix}/bin"
-
-    system "mix", "local.hex", "--force"
-    system "mix", "local.rebar", "--force"
-    system "mix", "deps.get"
-    system "mix", "escript.build"
-    bin.install "bin/cymphony"
-
-    # Patch shebang to use Homebrew's Erlang, not whatever is on user's PATH
-    inreplace bin/"cymphony", "#! /usr/bin/env escript",
-      "#!#{Formula["erlang"].opt_bin}/escript"
+    binary = Dir["cymphony*"].find { |f| File.file?(f) }
+    odie "cymphony binary not found in archive" unless binary
+    bin.install binary => "cymphony"
   end
 
   test do
