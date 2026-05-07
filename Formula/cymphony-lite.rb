@@ -1,8 +1,8 @@
 class CymphonyLite < Formula
   desc "Autonomous coding agent orchestrator (uses system Elixir/Erlang)"
   homepage "https://github.com/zaalipro/cymphony"
-  url "https://github.com/zaalipro/cymphony/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "319ac47a530ec3fa0788d5ef2c8621fa809d12e5cd890ac005b7437795c25e77"
+  url "https://github.com/zaalipro/cymphony/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "172c6a5714943e3cf56474b06620a84f87ec4e34430852de193382fefcd4280a"
   license "Apache-2.0"
   head "https://github.com/zaalipro/cymphony.git", branch: "main"
 
